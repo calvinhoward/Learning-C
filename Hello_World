@@ -1,0 +1,33 @@
+/* Using this file to learn how to use Github */
+
+/* This program creates a hollow square made of the * character. */
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int size = 40; //define the size of the square
+    for (int i=0; i<size;i++) //top of square
+    {
+        printf("* "); //space added after each star to match spacing between each new line
+    }
+    for(int j=0;j<(size-2);j++) //left and right sides separated by spaces
+    {
+        printf("\n");
+        int k=0; //resets k to 0 each interation for the while loop to follow
+        printf("*");
+        while(k<(size*2-3)) // creates the spaces between left and right side. minus 3 to account for * on either side of the spaces.
+        {
+            printf(" ");
+            k++;
+        }
+        printf("*");
+    }
+    printf("\n");
+    for (int l=0; l<size;l++) // bottom of square (copied from top)
+    {
+        printf("* ");
+    }
+
+    return 0;
+}
