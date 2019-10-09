@@ -1,0 +1,61 @@
+/* This program creates a hollow square made of the * character. */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int run=1;
+    while(run == 1) //runs the program until user wants to exit
+    {
+    int size; //define the size of the square
+    printf("Enter the size of square you would like\n");
+    scanf("%d", &size);
+    if(size > 100)
+    {
+        printf("That box is too big!\n");
+    }
+    if(size <= 100)
+    {
+        for (int i=0; i<size;i++) //top of square
+        {
+            printf("* "); //space added after each star to match spacing between each new line
+        }
+        for(int j=0;j<(size-2);j++) //left and right sides separated by spaces
+        {
+            printf("\n");
+            int k=0; //resets k to 0 each interation for the while loop to follow
+            printf("*");
+            while(k<(size*2-3)) // creates the spaces between left and right side. minus 3 to account for * on either side of the spaces.
+            {
+                printf(" ");
+                k++;
+            }
+            printf("*");
+        }
+        printf("\n");
+        if(size >= 2)
+        {
+            for (int l=0; l<size;l++) // bottom of square (copied from top)
+            {
+                printf("* ");
+            }
+        }
+    }
+    char option; //variable for checking if user wants to exit program or not
+    printf("\nWould you like to try again?\n(Enter y to try again or n to exit)\n");
+    scanf("%s", &option);
+    switch (option)
+    {
+        case 'y':
+            printf("\e[1;1H\e[2J"); //clears the console
+            break;
+        case 'n':
+            run = 0;
+            break;
+    //need to enter a default case to ask for y or n if neither character is entered
+    }
+    }
+
+    return 0;
+}
